@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'categories_screen.dart';
+
 void main() {
   runApp(
     MaterialApp(
-      home: MyHomePage(),
+      home: CategoriesScreen(),
     ),
   );
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dinner Time"),
-      ),
-    );
-  }
 }
