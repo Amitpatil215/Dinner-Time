@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
 
         '/filters-Page': (ctx) {
-          return FiltersScreen(_setFilters);
+          return FiltersScreen(_setFilters, _filters);
         }
       },
     );
