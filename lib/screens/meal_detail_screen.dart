@@ -76,6 +76,19 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.restore_from_trash,
+          color: Colors.red,
+        ),
+        backgroundColor: Colors.white38,
+        elevation: 5,
+        splashColor: Colors.pink,
+        onPressed: () {
+          //passing back id to before page
+          Navigator.of(context).pop(mealId);
+        },
+      ),
     );
   }
 }

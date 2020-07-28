@@ -8,6 +8,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   const MealItem({
     @required this.id,
@@ -16,6 +17,7 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem,
   });
 
   //Getter for Getting Complexity text as it is enum initially
@@ -36,7 +38,14 @@ class MealItem extends StatelessWidget {
     Navigator.of(ctx).pushNamed(
       '/meal-Detail',
       arguments: id,
-    );
+      //when we pop the pushed page
+      //then "then" will be executed
+      //as it is a future
+    ).then((value) {
+      if(value != null){
+        removeItem(value);
+      }
+    });
   }
 
   @override
