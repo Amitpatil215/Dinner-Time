@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget listTilesDrawer(String inputTitle, IconData inputIcon) {
+  Widget listTilesDrawer(BuildContext ctx, String inputTitle,
+      IconData inputIcon, String routeName) {
     return ListTile(
       leading: Icon(inputIcon),
       title: Text(
@@ -12,7 +13,11 @@ class MainDrawer extends StatelessWidget {
           color: Colors.indigo,
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        //Using Replacement instead of stacking on one another
+        //Otherwise our Stack will be infinitely growing
+        Navigator.of(ctx).pushReplacementNamed(routeName);
+      },
     );
   }
 
@@ -38,8 +43,13 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
           ),
-          listTilesDrawer("Meals", Icons.restaurant),
-          listTilesDrawer("Filters", Icons.filter),
+          listTilesDrawer(context, "Meals", Icons.restaurant, '/'),
+          listTilesDrawer(
+            context,
+            "Filters",
+            Icons.filter,
+            "/filters-Page",
+          ),
         ],
       ),
     );
