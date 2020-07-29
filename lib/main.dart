@@ -26,6 +26,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Meal> _availableMeals = DUMMY_MEALS;
 
+  List<Meal> _favouriteMeals = [];
+
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
@@ -45,6 +47,32 @@ class _MyHomePageState extends State<MyHomePage> {
         }
         return true;
       }).toList();
+    });
+  }
+
+  void _toggleFavourites(String mealId) {
+    //Checking if it is already fav. then we need to remove it
+    final existingIndex = _favouriteMeals.indexWhere((element) {
+      return element.id == mealId;
+    });
+    if (existingIndex >= 0) {
+      setState(() {
+        _favouriteMeals.removeAt(existingIndex);
+      });
+    }
+    // it will give -1 index if no fav found
+    else {
+      setState(() {
+        _favouriteMeals.add(DUMMY_MEALS.firstWhere((element) {
+          return mealId == element.id;
+        }));
+      });
+    }
+  }
+
+  bool _isMealFavorite(String id) {
+    return _favouriteMeals.any((element) {
+      return element.id == id;
     });
   }
 
@@ -71,13 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
       routes: {
         //equivalent to home: argument in MaterialApp()
         '/': (ctx) {
-          return TabScreen();
+          return TabScreen(_favouriteMeals);
         },
         '/categories': (ctx) {
           return CategoryMealsScreen(_availableMeals);
         },
         '/meal-Detail': (ctx) {
-          return MealDetailScreen();
+          return MealDetailScreen(_toggleFavourites, _isMealFavorite);
         },
 
         '/filters-Page': (ctx) {

@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  final Function toggleFavourite;
+  final Function isFavourite;
+
+  MealDetailScreen(this.toggleFavourite, this.isFavourite);
+
   @override
   Widget build(BuildContext context) {
     //User selected this meal
@@ -58,13 +63,34 @@ class MealDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              height: 250,
-              width: double.infinity,
-              child: Image.network(
-                selectedMeal.imageUrl,
-                fit: BoxFit.cover,
-              ),
+            Stack(
+              children: <Widget>[
+                Container(
+                  height: 250,
+                  width: double.infinity,
+                  child: Image.network(
+                    selectedMeal.imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  bottom: 1,
+                  right: 1,
+                  child: IconButton(
+                      icon: isFavourite(mealId)
+                          ? Icon(
+                              Icons.favorite,
+                              color: Colors.white,
+                            )
+                          : Icon(
+                              Icons.favorite_border,
+                              color: Colors.white,
+                            ),
+                      onPressed: () {
+                        toggleFavourite(mealId);
+                      }),
+                )
+              ],
             ),
             sectionTitle("Ingredients :"),
             respectiveSectionList(selectedMeal.ingredients),
