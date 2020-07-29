@@ -1,22 +1,33 @@
 # Dinner Time
 
-Meals app with recipe!
+Meals app with category, filters, Favourites, recipes!
 
 ## Screenshots
-### Home Page
-<img src="read_me_screenshot/home.png" width=250>
 
-### Add Your Transaction
-<img src="read_me_screenshots/Drawer.png" width=250>   <img src="read_me_screenshots/addTransaction.png" width=250>   
+### Filtered Result Screen
+<img src="readme_screenshots/filteredResults.png" width=250> 
 
-### No Transactions
-<img src="read_me_screenshots/noTransaction.png" width=250>
+### Category Screen
+<img src="readme_screenshots/home.png" width=250> 
+
+### Drawer
+<img src="readme_screenshots/Drawer.png" width=250>
+
+### Filters
+<img src="readme_screenshots/Filters.png" width=250>  
+
+### Recipe Screen
+<img src="readme_screenshots/Recipe.png" width=250>
+
+### Favourite Screen
+<img src="readme_screenshots/favorites.png" width=250>
+
 
 ## Features 
 1. Filter Your Meals Accordingly
-2. Grid View Depending on Categiries
-3. Recent week Expense Statistics
-4. Delete your Transactions
+2. Grid View Depending on Categories
+3. Mark as Favourite 
+4. Detailed Recipe with Ingredients
 
 
 
@@ -24,4 +35,3 @@ Meals app with recipe!
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
