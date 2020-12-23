@@ -1,4 +1,6 @@
-# Dinner Time
+# [Dinner Time](https://amitpatil215.github.io/Dinner-Time/#/)
+
+For live demo click [here](https://amitpatil215.github.io/Dinner-Time/#/)
 
 Meals app with category, filters, Favourites, recipes!
 
